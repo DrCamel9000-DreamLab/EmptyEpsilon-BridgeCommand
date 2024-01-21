@@ -25,7 +25,7 @@ if(NOT SFML_ROOT)
     find_program(UNZIP unzip)
 
     if(NOT IS_DIRECTORY "${WIN32_BASE}/openal-soft-1.19.1")
-        file(DOWNLOAD https://openal-soft.org/openal-releases/openal-soft-1.19.1.tar.bz2 "${WIN32_BASE}/openal-soft.tar.bz2" SHOW_PROGRESS)
+        file(DOWNLOAD https://master.dl.sourceforge.net/project/sulinos/archives/openal-soft-1.19.1.tar.bz2?viasf=1 "${WIN32_BASE}/openal-soft.tar.bz2" SHOW_PROGRESS)
         execute_process_ex(COMMAND tar -xjf openal-soft.tar.bz2 WORKING_DIRECTORY "${WIN32_BASE}")
     endif()
     if(NOT IS_DIRECTORY "${CMAKE_SYSROOT}/include/AL")
@@ -42,7 +42,7 @@ if(NOT SFML_ROOT)
                 "-DDXSDK_DIR=/usr/i686-w64-mingw32"
             WORKING_DIRECTORY "${WIN32_BASE}/openal_build")
         execute_process_ex(
-            COMMAND "make" "-j4" "install"
+            COMMAND "make" "install"
             WORKING_DIRECTORY "${WIN32_BASE}/openal_build")
     endif()
 
