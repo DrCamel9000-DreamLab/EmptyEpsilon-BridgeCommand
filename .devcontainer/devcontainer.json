@@ -10,7 +10,12 @@
 	"features": {
 		"ghcr.io/devcontainers/features/github-cli:1": {},
 		"ghcr.io/devcontainers-contrib/features/ninja-asdf:2": {}
-	}
+	},
+
+	// https://code.visualstudio.com/remote/advancedcontainers/add-local-file-mount
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE},target=/mnt/host-home,type=bind,consistency=cached"
+	]
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
 	// "forwardPorts": [],
